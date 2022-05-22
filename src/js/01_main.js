@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
     burger()
+    if (window.innerWidth > 992) {
+        setMapWidth()
+    }
 }
 
 const burger = () => {
@@ -10,4 +13,17 @@ const burger = () => {
         document.querySelector(".nav").classList.toggle("nav--active")
         document.querySelector("body").classList.toggle("fixed-body")
     }
+}
+
+window.onresize = function(event) {
+    if (window.innerWidth > 992) {
+        setMapWidth()
+    }
+};
+
+const setMapWidth = () => {
+    let windowWidth = window.innerWidth
+    let mapContainer = document.querySelector(".contacts__map")
+    console.log(windowWidth);
+    mapContainer.style.width = `${windowWidth / 2}px`
 }
